@@ -12,9 +12,17 @@ export class UploadComponent {
   resMessage: any="";
   imageName: any;
   name:string="";
-  price:string="";
+  degree:string="";
+  exp:string="";
+  phoneno:string="";
+  spl:string="";
+  address:string="";
+
 
   constructor(private http:HttpClient){}
+  ngOnInit(){
+    this.selectedFile={} as any;
+  }
 
   //Gets called when the user selects an image
   public onFileChanged(event:any) {
@@ -28,14 +36,27 @@ export class UploadComponent {
 
     uploadImageData.append('dietFile', this.selectedFile, this.selectedFile.name);
     uploadImageData.append("name",this.name);
-    uploadImageData.append("price",this.price);
+    uploadImageData.append("degree",this.degree);
+    uploadImageData.append("spl",this.spl);
+    uploadImageData.append("exp",this.exp);
+    uploadImageData.append("address",this.address);
+    uploadImageData.append("phone",this.phoneno);
+    
     
 
-    let res =this.http.post("http://localhost:1234/prd/add",uploadImageData,
-    { observe: 'response' });
+    let res =this.http.post("http://localhost:1234/doctor/add",uploadImageData,
+    {responseType:'text' as 'json'});
     res.subscribe(
       data=>{
         this.resMessage = data;
+        console.log(data);
+        this.name="";
+        this.degree="";
+        this.spl="";
+        this.exp="";
+        this.address="";
+        this.phoneno="";
+        
       }
     );
 

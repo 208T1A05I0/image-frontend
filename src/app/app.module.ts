@@ -8,13 +8,21 @@ import { DisplayComponent } from './display/display.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { DeleteComponent } from './delete/delete.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UploadComponent,
     DisplayComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProfileComponent,
+    LoginComponent,
+    HomeComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
